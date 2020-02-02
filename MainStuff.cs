@@ -133,7 +133,7 @@ namespace assign_1
                     Console.WriteLine($"Meeting Details: {meeting.itemDetails}");
                     Console.WriteLine($"Meeting Type: {meeting.itemType}");
                     Console.WriteLine($"Meeting Start: {meeting.startTime}");
-                    Console.WriteLine($"Meeting Meeting: {meeting.endTime}");
+                    Console.WriteLine($"Meeting End: {meeting.endTime}");
                     Console.WriteLine();
                 }
                 i++;
@@ -215,7 +215,6 @@ namespace assign_1
                 if(choice == 1 || choice == 3)
                 {
                     s = SelectItemNumber(editDay.myTasks.Count);
-                    Console.WriteLine($"Selection is: {s}");
                     Task editTask = editDay.myTasks[s-1];
                     editDay.RemoveTask(s-1);
                     if(choice == 1)
@@ -240,7 +239,6 @@ namespace assign_1
         int SelectItemNumber(int count)
         {
             int s = 9999;
-            Console.WriteLine($"Count is: {count}");
             while(s > count+1 || s < 1)
             {
                 Console.WriteLine("Enter the number of the item you would like to edit or delete.");
@@ -294,7 +292,7 @@ namespace assign_1
                     Console.WriteLine($"Meeting Details: {meeting.itemDetails}");
                     Console.WriteLine($"Meeting Type: {meeting.itemType}");
                     Console.WriteLine($"Meeting Start: {meeting.startTime}");
-                    Console.WriteLine($"Meeting Meeting: {meeting.endTime}");
+                    Console.WriteLine($"Meeting End: {meeting.endTime}");
                     Console.WriteLine();
                     k++;
                 }

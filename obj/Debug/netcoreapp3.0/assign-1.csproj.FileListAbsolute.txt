@@ -20,3 +20,14 @@ C:\Users\Emily\spring-2020\advanced-oop\assign-1\obj\Debug\netcoreapp3.0\assign-
 C:\Users\Emily\spring-2020\advanced-oop\assign-1\obj\Debug\netcoreapp3.0\assign-1.AssemblyInfo.cs
 C:\Users\Emily\spring-2020\advanced-oop\assign-1\obj\Debug\netcoreapp3.0\assign-1.dll
 C:\Users\Emily\spring-2020\advanced-oop\assign-1\obj\Debug\netcoreapp3.0\assign-1.pdb
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.exe
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.deps.json
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.runtimeconfig.json
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.runtimeconfig.dev.json
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.dll
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\bin\Debug\netcoreapp3.0\assign-1.pdb
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\obj\Debug\netcoreapp3.0\assign-1.csprojAssemblyReference.cache
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\obj\Debug\netcoreapp3.0\assign-1.AssemblyInfoInputs.cache
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\obj\Debug\netcoreapp3.0\assign-1.AssemblyInfo.cs
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\obj\Debug\netcoreapp3.0\assign-1.dll
+C:\Users\Emily\spring-2020\advanced-oop\adv-oop-assign1\obj\Debug\netcoreapp3.0\assign-1.pdb

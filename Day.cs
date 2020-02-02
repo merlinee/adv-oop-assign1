@@ -24,9 +24,22 @@ namespace assign_1
             myMeetings = new List<Meeting>();
         }
 
+        public void AddTask(Task newTask)
+        {
+            if(newTask.taskPriority == Priority.Low)
+                myTasks.Add(newTask);
+            else if(newTask.taskPriority == Priority.High)
+                myTasks.Insert(0, newTask);
+            else
+                AddMediumTask(newTask);
+        }
         public void AddLowTask(Task newTask)
         {
             myTasks.Add(newTask);
+        }
+        public void RemoveTask(int i)
+        {
+            myTasks.RemoveAt(i);
         }
 
         public void AddHighTask(Task newTask)
@@ -56,6 +69,11 @@ namespace assign_1
                 return true;
             else
                 return false;
+        }
+
+        public void RemoveMeeting(int i)
+        {
+            myMeetings.RemoveAt(i);
         }
 
         public void AddMeeting(Meeting newMeeting)

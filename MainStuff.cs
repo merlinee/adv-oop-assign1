@@ -108,6 +108,7 @@ namespace assign_1
 
         void DisplayCalendar(List<DateTime> dates)
         {
+            int i = 1;
             foreach(var date in dates)
             {
                 string strDate = date.ToString();
@@ -115,7 +116,7 @@ namespace assign_1
                 Day entry = myCalendar[strDate];
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine($"Date: {entry.myDate}\n");
+                Console.WriteLine($"{i}. Date: {entry.myDate}\n");
                 foreach(var task in entry.myTasks)
                 {
                     Console.WriteLine($"Task Title: {task.itemTitle}");
@@ -135,7 +136,130 @@ namespace assign_1
                     Console.WriteLine($"Meeting Meeting: {meeting.endTime}");
                     Console.WriteLine();
                 }
+                i++;
             }
+
+            Console.WriteLine("Enter 9999 to return to menu.");
+            Console.WriteLine("Enter the number of the day in order to edit or delete an item on that day.");
+            string choiceEntry = Console.ReadLine();
+            if(Int32.TryParse(choiceEntry, out int c))
+            {
+                if(c == 9999 || c > dates.Count || c < 1)
+                    return;
+                else
+                    DeleteUpdateStuff(dates[c-1]);
+            }
+            else
+                return;            
+        }
+
+        void DeleteUpdateStuff(DateTime date)
+        {
+            int choice = 9999;
+            string choiceEntry = "";
+            while(choice > 2 || choice < 1)
+            {
+            Console.WriteLine("Would you like to delete the entire day? Type 1 if yes or 2 to move to individual items.");
+            choiceEntry = Console.ReadLine();
+
+            if(Int32.TryParse(choiceEntry, out int c))
+                choice = c;
+            else
+                choice = 9999;
+            }
+
+            if(choice == 1)
+            {
+                while(choice > 4 || choice < 3)
+                {
+                    Console.WriteLine("Are you sure you want to delete the entire day? You will not be able to retrieve it or any items on that day.");
+                    Console.WriteLine("Press 3 to return to menu, or 4 to confirm.");
+                    choiceEntry = Console.ReadLine();
+                    if(Int32.TryParse(choiceEntry, out int c))
+                    {
+                        if(c != 4)
+                            return;
+                        else
+                        {
+                            choice = c;
+                            myCalendar.Remove(date.ToString());
+                            dateList.Remove(date);
+                            DeleteWriteJSON();
+                            Console.WriteLine("Day deleted.");
+                        }
+                            
+                    }
+                    else
+                        choice = 9999;
+                }
+            } 
+            else 
+            {
+                DisplayDay(date);
+                Day editDay = myCalendar[date.ToString()];
+                UpdateStuff update = new UpdateStuff();
+                int s = 9999;
+                choice = 9999;
+                while(choice > 5 || choice < 1)
+                {
+                    Console.WriteLine("Enter 1 to edit a task, 2 to edit a meeting, 3 to delete a task, or 4 to delete a meeting.");
+                    Console.WriteLine("Otherwise enter 5 to return to the main menu.");
+                    choiceEntry = Console.ReadLine();
+            
+                    if(Int32.TryParse(choiceEntry, out int c))
+                        choice = c;
+                    else
+                        choice = 9999;
+                }
+                
+                if(choice == 1 || choice == 3)
+                {
+                    s = SelectItemNumber(editDay.myTasks.Count);
+                    Console.WriteLine($"Selection is: {s}");
+                    Task editTask = editDay.myTasks[s-1];
+                    editDay.RemoveTask(s-1);
+                    if(choice == 1)
+                        editDay.AddTask(update.UpdateTask(editTask));
+                }
+                else if(choice == 2 || choice == 4)
+                {
+                    s = SelectItemNumber(editDay.myMeetings.Count);
+                    Meeting editMeeting = editDay.myMeetings[s-1];
+                    editDay.RemoveMeeting(s-1);
+                    if(choice == 2)
+                        editDay.AddMeeting(update.UpdateMeeting(editMeeting));
+                }
+                else 
+                    return;
+
+                myCalendar[date.ToString()] = editDay;
+                DeleteWriteJSON();
+            } 
+        }
+
+        int SelectItemNumber(int count)
+        {
+            int s = 9999;
+            Console.WriteLine($"Count is: {count}");
+            while(s > count+1 || s < 1)
+            {
+                Console.WriteLine("Enter the number of the item you would like to edit or delete.");
+                string choiceEntry = Console.ReadLine();
+            
+                if(Int32.TryParse(choiceEntry, out int c))
+                    s = c;
+                else
+                    s = 9999;
+            }
+            return s;
+        }
+
+        void DeleteWriteJSON()
+        {
+            string jsonString = JsonSerializer.Serialize(myCalendar);
+            File.WriteAllText(fileName, jsonString);
+            jsonString = JsonSerializer.Serialize(dateList);
+            File.WriteAllText(dateFile, jsonString);
         }
 
         void DisplayDay(DateTime day)
@@ -145,6 +269,9 @@ namespace assign_1
                 Console.WriteLine($"There is no entry for this date: {strDate}");
             else
             {
+                int i = 1;
+                int j = 1;
+                int k = 1;
                 Day entry = myCalendar[strDate];
                 Console.WriteLine();
                 Console.WriteLine();
@@ -152,23 +279,26 @@ namespace assign_1
                 Console.WriteLine();
                 foreach(var task in entry.myTasks)
                 {
-                    Console.WriteLine($"Task Title: {task.itemTitle}");
+                    Console.WriteLine($"{j}. Task Title: {task.itemTitle}");
                     Console.WriteLine($"Task Details: {task.itemDetails}");
                     Console.WriteLine($"Task Type: {task.itemType}");
                     Console.WriteLine($"Task Priority: {task.taskPriority}");
                     Console.WriteLine();
+                    j++;
                 }
                 Console.WriteLine();
                 Console.WriteLine();
                 foreach(var meeting in entry.myMeetings)
                 {
-                    Console.WriteLine($"Meeting Title: {meeting.itemTitle}");
+                    Console.WriteLine($"{k}. Meeting Title: {meeting.itemTitle}");
                     Console.WriteLine($"Meeting Details: {meeting.itemDetails}");
                     Console.WriteLine($"Meeting Type: {meeting.itemType}");
                     Console.WriteLine($"Meeting Start: {meeting.startTime}");
                     Console.WriteLine($"Meeting Meeting: {meeting.endTime}");
                     Console.WriteLine();
+                    k++;
                 }
+                i++;
             }
         }
 

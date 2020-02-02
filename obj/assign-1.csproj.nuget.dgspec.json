@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emily\\spring-2020\\advanced-oop\\assign-1\\assign-1.csproj": {}
+    "C:\\Users\\Emily\\spring-2020\\advanced-oop\\adv-oop-assign1\\assign-1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emily\\spring-2020\\advanced-oop\\assign-1\\assign-1.csproj": {
+    "C:\\Users\\Emily\\spring-2020\\advanced-oop\\adv-oop-assign1\\assign-1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\assign-1\\assign-1.csproj",
+        "projectUniqueName": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\adv-oop-assign1\\assign-1.csproj",
         "projectName": "assign-1",
-        "projectPath": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\assign-1\\assign-1.csproj",
+        "projectPath": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\adv-oop-assign1\\assign-1.csproj",
         "packagesPath": "C:\\Users\\Emily\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\assign-1\\obj\\",
+        "outputPath": "C:\\Users\\Emily\\spring-2020\\advanced-oop\\adv-oop-assign1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

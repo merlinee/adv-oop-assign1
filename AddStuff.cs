@@ -31,8 +31,6 @@ namespace assign_1
             Console.WriteLine("Input date in the format 'mm/dd/yyyy'.");
             string inputDate = Console.ReadLine();
             int[] dateArr = vali.ValiDate(inputDate, nowDate);
-            Console.WriteLine($"Length of dateArr {dateArr.Length}");
-            Console.WriteLine($"First element of dateArr {dateArr[0]}");
             if(dateArr.Length != 3)
             {
                 Console.WriteLine("That is not a valid date.");
